@@ -1,38 +1,22 @@
-/*
-* File name   : breathingLed.c
-* Description : control the brightness of led by PWM.
-* Website     : www.adeept.com
-* E-mail      : support@adeept.com
-* Author      : Jason
-* Date        : 2015/05/02
-*/
 #include <wiringPi.h>
 #include <stdio.h>
-
-#define LedPin    1
-
-int main(void)
-{
-	int i;
-
-	if(wiringPiSetup() < 0){ //when initialize wiringPi failed, print message to screen
-		printf("setup wiringPi failed !\n");
-		return -1; 
-	}
-	
-	pinMode(LedPin, PWM_OUTPUT);//pwm output mode
-
-	while(1){
-		for(i=0;i<1024;i++){
-			pwmWrite(LedPin, i);
-			delay(2);
-		}
-		delay(1000);
-		for(i=1023;i>=0;i--){
-			pwmWrite(LedPin, i);
-			delay(2);
-		}
-	}
-
-	return 0;
+#include <softPwm.h>
+#define ledPin 1 
+void main(void) {
+int i;
+printf("Program is starting ... \n");
+wiringPiSetup(); //Initialize wiringPi.
+softPwmCreate(ledPin, 0, 100);//Creat SoftPWM pin
+while(1){
+for(i=0;i<100;i++){ //make the led brighter
+softPwmWrite(ledPin, i); 
+delay(20);
+}
+delay(300);
+for(i=100;i>=0;i--){ //make the led darker
+softPwmWrite(ledPin, i);
+delay(20);
+}
+delay(300);
+} 
 }

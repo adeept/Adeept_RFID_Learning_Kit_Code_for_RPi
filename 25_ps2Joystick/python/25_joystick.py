@@ -12,41 +12,41 @@ import ADC0832_tmp
 import RPi.GPIO as GPIO
 import time
 
-btn = 15	# Define button pin
+btn = 15# Define button pin
 
 def setup():
-	ADC0832_tmp.setup()				# Setup ADC0832
-	GPIO.setmode(GPIO.BOARD)	# Numbers GPIOs by physical location
-	GPIO.setup(btn, GPIO.IN, pull_up_down=GPIO.PUD_UP)	# Setup button pin as input an pull it up
+	ADC0832_tmp.setup()# Setup ADC0832
+	GPIO.setmode(GPIO.BOARD)# Numbers GPIOs by physical location
+	GPIO.setup(btn, GPIO.IN, pull_up_down=GPIO.PUD_UP)# Setup button pin as input an pull it up
 	global state
-	state = ['up', 'down', 'left', 'right']	
+	state = ['up', 'down', 'left', 'right']
 
-def getResult():	#get joystick result
+def getResult():#get joystick result
 	if ADC0832_tmp.getResult1() == 0:
-		return 1		#up
+		return 1#up
 	if ADC0832_tmp.getResult1() == 255:
-		return 2		#down
+		return 2#down
 
 	if ADC0832_tmp.getResult() == 0:
-		return 3		#left
+		return 3#left
 	if ADC0832_tmp.getResult() == 255:
-		return 4		#right
+		return 4#right
 
 	if GPIO.input(btn) == 0:
-		print 'Button is pressed!'		# Button pressed
+		print ('Button is pressed!')#Button pressed
 
 def loop():
 	while True:
 		tmp = getResult()
-		if tmp != None:
-			print state[tmp - 1]
+	if tmp != None:
+		print(state[tmp-1])
 
 def destory():
-	GPIO.cleanup()				# Release resource
+	GPIO.cleanup()#Release resource
 
-if __name__ == '__main__':		# Program start from here
+if __name__ == '__main__':#Program start from here
 	setup()
 	try:
 		loop()
-	except KeyboardInterrupt:  	# When 'Ctrl+C' is pressed, the child program destroy() will be  executed.
+	except KeyboardInterrupt:#When 'Ctrl+C' is pressed, the child program destroy() will be  executed.
 		destory()

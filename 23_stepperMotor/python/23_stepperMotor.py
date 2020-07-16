@@ -58,17 +58,17 @@ def setup():
 
 def loop():  
 	while True:  
-		print "backward..."  
+		print ("backward...")  
 		backward(0.003, 512)  # 512 steps --- 360 angle  
 
-		print "stop..."  
+		print ("stop...")  
 		stop()                 # stop  
 		time.sleep(3)          # sleep 3s  
 
-		print "forward..."  
+		print ("forward...")  
 		forward(0.005, 512)  
 
-		print "stop..."  
+		print ("stop...")  
 		stop()  
 		time.sleep(3)  
 

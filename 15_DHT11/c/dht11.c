@@ -1,11 +1,3 @@
-/*
- * File name   : dht11.c
- * Description : Acquire temperature and humidity.
- * Website     : www.adeept.com
- * E-mail      : support@adeept.com
- * Author      : Jason
- * Date        : 2015/06/21
- */
 #include <wiringPi.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -13,7 +5,7 @@
 
 #define MAXTIMINGS 85
 
-#define DHTPIN 1
+#define DHTPIN 7
 
 int dht11_dat[5] = {0,0,0,0,0};
 
@@ -22,7 +14,7 @@ void read_dht11_dat()
 	uint8_t laststate = HIGH;
 	uint8_t counter = 0;
 	uint8_t j = 0, i;
-	float f;
+	float f; // fahrenheit
 
 	dht11_dat[0] = dht11_dat[1] = dht11_dat[2] = dht11_dat[3] = dht11_dat[4] = 0;
 
@@ -90,3 +82,4 @@ int main (void)
 
 	return 0 ;
 }
+

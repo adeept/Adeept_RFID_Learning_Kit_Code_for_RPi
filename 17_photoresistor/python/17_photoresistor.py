@@ -22,7 +22,7 @@ def loop():
 			res = 0
 		if res > 100:
 			res = 100
-		print 'res = %d' % res
+		print ('res = %d' % res)
 		time.sleep(0.2)
 
 if __name__ == '__main__':
@@ -31,5 +31,5 @@ if __name__ == '__main__':
 		loop()
 	except KeyboardInterrupt: 
 		ADC0832.destroy()
-		print 'The end !'
+		print ('The end !')
 

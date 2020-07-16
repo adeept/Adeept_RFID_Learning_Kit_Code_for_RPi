@@ -60,14 +60,14 @@ def btnScan():
 		time.sleep(0.01)
 		if GPIO.input(BTN_RUN_STOP) == GPIO.LOW:
 			g_sta = not g_sta
-			print 'g_sta = %d', g_sta
+			print ('g_sta = %d', g_sta)
 		while not GPIO.input(BTN_RUN_STOP):
 			pass
 	if GPIO.input(BTN_DIRECTION) == GPIO.LOW:
 		time.sleep(0.01)
 		if GPIO.input(BTN_DIRECTION) == GPIO.LOW:
 			g_dir = not g_dir
-			print 'g_dir = %d', g_dir
+			print ('g_dir = %d', g_dir)
 		while not GPIO.input(BTN_DIRECTION):
 			pass
 	if GPIO.input(BTN_SPEED_INCREASE) == GPIO.LOW:
@@ -76,7 +76,7 @@ def btnScan():
 			speed += 1
 			if speed > 100:
 				speed = 100
-			print 'speed = %d', speed
+			print ('speed = %d', speed)
 		while not GPIO.input(BTN_SPEED_INCREASE):
 			pass
 	if GPIO.input(BTN_SPEED_DECREASE) == GPIO.LOW:
@@ -85,7 +85,7 @@ def btnScan():
 			speed -= 1
 			if speed < 0:
 				speed = 0
-			print 'speed = %d', speed
+			print ('speed = %d', speed)
 		while not GPIO.input(BTN_SPEED_DECREASE):
 			pass
 

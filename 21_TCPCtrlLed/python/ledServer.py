@@ -21,21 +21,21 @@ def setup():
 
 def loop():
 	while True:
-		print 'Waiting for connection...'
+		print （'Waiting for connection...'）
 		tcpCliSock, addr = tcpSerSock.accept()
-		print '...connected from :', addr     # Print the IP address of the client connected with the server
+		print （'...connected from :', addr ）    # Print the IP address of the client connected with the server
 		while True:
 			data = tcpCliSock.recv(BUFSIZ)    # Receive data sent from the client
 			if not data:
 				break
 			if data == 'ON':
 				GPIO.output(LedPin, GPIO.LOW)
-				print 'led on'
+				print （'led on'）
 			elif data == 'OFF':
 				GPIO.output(LedPin, GPIO.HIGH)
-				print 'led off'
+				print （'led off'）
 			else:
-				print 'error cmd !'
+				print （'error cmd !'）
 		tcpSerSock.close()
 
 if __name__ == '__main__':

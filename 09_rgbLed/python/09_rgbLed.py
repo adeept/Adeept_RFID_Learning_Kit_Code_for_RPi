@@ -1,14 +1,3 @@
-#!/usr/bin/env python
-
-#-----------------------------------------------------------
-# File name   : 09_rgbLed.py
-# Description : RGB LED.
-# Author      : Jason
-# E-mail      : jason@adeept.com
-# Website     : www.adeept.com
-# Date        : 2015/06/12
-#-----------------------------------------------------------
-
 import RPi.GPIO as GPIO
 import time
 
@@ -74,4 +63,3 @@ if __name__ == "__main__":
 		loop()
 	except KeyboardInterrupt:
 		destroy()
-

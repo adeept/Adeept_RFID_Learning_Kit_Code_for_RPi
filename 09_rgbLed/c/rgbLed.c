@@ -1,11 +1,3 @@
-/*
- * File name   : rgbLed.c
- * Description : control a rgb led 
- * Website     : www.adeept.com
- * E-mail      : support@adeept.com
- * Author      : Jason
- * Date        : 2015/05/26
- */
 #include <wiringPi.h>  
 #include <softPwm.h>  
 #include <stdio.h>  

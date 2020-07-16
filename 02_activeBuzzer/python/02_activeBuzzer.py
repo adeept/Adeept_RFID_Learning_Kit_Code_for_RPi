@@ -12,7 +12,7 @@
 import RPi.GPIO as GPIO
 import time
 
-BeepPin = 12    # pin11
+BeepPin = 12    # pin12
 
 def setup():
 	GPIO.setwarnings(False)
@@ -32,7 +32,7 @@ def destroy():
 	GPIO.cleanup()                     # Release resource
 
 if __name__ == '__main__':     # Program start from here
-	print 'Press Ctrl+C to end the program...'
+	#print ('Press Ctrl+C to end the program...')
 	setup()
 	try:
 		loop()

@@ -1,39 +1,39 @@
-/*
-* File name   : segment.c
-* Description : display 0~9, A~F on 7-segment display
-* Website     : www.adeept.com
-* E-mail      : support@adeept.com
-* Author      : Jason
-* Date        : 2015/05/26
-*/
 #include <stdio.h>
 #include <wiringPi.h>
 
 typedef unsigned char uchar;
+//			    0     1    2   3    4    5    6    7    8    9     a   b    c    d    e    f    g
+const uchar SegCode[17] = {0xbf,0x86,0xdb,0xcf,0xE6,0xed,0xfd,0x87,0xff,0xef,0xdf,0xfc,0xd8,0xfb,0xf1,0xef,0xf4};
 
-const uchar SegCode[17] = {0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f,0x77,0x7c,0x39,0x5e,0x79,0x71,0x80};
-
+const uchar segLedPins[] = {0,1,3,2,4,5,6,7,8};
+int redbade(uchar a,int b)
+{
+     return (a>>b)&0x01;
+}
 int main(void)
 {
-	int i;
+	int i,j;
 
 	if(wiringPiSetup() < 0){ // setup wiringPi
 		printf("wiringPi setup failed !\n");
 		return -1;
 	}
 
+
 	for(i = 0; i < 8; i++){  // set pin mode as output(GPIO0~GPIO7)
-		pinMode(i, OUTPUT);
+		pinMode(segLedPins[i], OUTPUT);
 	}
 
+
 	while(1){
-		for(i = 0; i < sizeof(SegCode)/sizeof(uchar); i++){ // display 0~9,A~F
-			digitalWriteByte(SegCode[i]);
-			delay(500);
+        for(j = 0; j <17; j++){
+		for(i = 0; i  <8; i++){ // display 0~9,A~F
+			digitalWrite(segLedPins[i],redbade(SegCode[j],i));
 		}
-		digitalWriteByte(0x00);   //segment off
-		delay(1000);
+   delay(500);
+   }
 	}
 
 	return 0;
 }
+

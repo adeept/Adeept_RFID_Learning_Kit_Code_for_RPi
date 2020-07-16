@@ -1,11 +1,3 @@
-/*
- * Filename    : distance.c
- * Description : Measure distance with ultrasonic sensor module.
- * Website     : www.adeept.com
- * E-mail      : support@adeept.com
- * Author      : Jason
- * Date        : 2015/06/21
- */
 #include <wiringPi.h>  
 #include <stdio.h>  
 #include <sys/time.h>  

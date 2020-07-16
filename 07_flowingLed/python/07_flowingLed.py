@@ -1,14 +1,3 @@
-#!/usr/bin/env python
-
-#-----------------------------------------------------------
-# File name   : 07_flowingLed.py
-# Description : flowing LED
-# Author      : Jason
-# E-mail      : jason@adeept.com
-# Website     : www.adeept.com
-# Date        : 2015/06/12
-#-----------------------------------------------------------
-
 import RPi.GPIO as GPIO
 import time
 
@@ -24,7 +13,7 @@ def loop():
 	while True:
 		for pin in pins:
 			GPIO.output(pin, GPIO.LOW)	
-			time.sleep(0.2)
+			time.sleep(0.5)
 			GPIO.output(pin, GPIO.HIGH)
 
 def destroy():
@@ -38,4 +27,3 @@ if __name__ == '__main__':     # Program start from here
 		loop()
 	except KeyboardInterrupt:  # When 'Ctrl+C' is pressed, the child program destroy() will be  executed.
 		destroy()
-

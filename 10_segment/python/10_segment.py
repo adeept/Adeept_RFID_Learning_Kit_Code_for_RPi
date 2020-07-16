@@ -1,18 +1,7 @@
-#!/usr/bin/env python
-
-#-----------------------------------------------------------
-# File name   : 10_segment.py
-# Description : segment display.
-# Author      : Jason
-# E-mail      : jason@adeept.com
-# Website     : www.adeept.com
-# Date        : 2015/06/12
-#-----------------------------------------------------------
-
 import RPi.GPIO as GPIO
 import time
 
-pins = [11,12,13,15,16,18,22,7]
+pins = [11,12,15,13,16,18,22,7]
 dats = [0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,0x7f,0x6f,0x77,0x7c,0x39,0x5e,0x79,0x71,0x80]
 
 def setup():
@@ -48,4 +37,3 @@ if __name__ == '__main__':     # Program start from here
 		loop()
 	except KeyboardInterrupt:  # When 'Ctrl+C' is pressed, the child program destroy() will be executed.
 		destroy()
-

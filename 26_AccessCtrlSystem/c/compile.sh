@@ -1,4 +1,4 @@
 #!/bin/sh
 
-gcc *.c -o test -lwiringPi
+gcc *.c -o rfid_test
 echo "completed!"
